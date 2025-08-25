@@ -12,7 +12,25 @@ package shapes;
 public abstract class Shape2D {
 
 
-    public Shape2D(Point centre) {
+    protected  Point centre;
+    private double area;
+    private double perimeter;
 
+
+
+    public Shape2D(Point centre) {
+        this.centre = centre;
     }
+
+    public void translate(double xValue, double yValue) {
+        centre.translatePoint(xValue, yValue);
+    }
+
+    public abstract boolean containsPoint (Point aApoint);
+
+    public abstract Point[] getVertices();
+
+    public abstract double getArea();
+
+    public abstract double getPerimeter();
 }

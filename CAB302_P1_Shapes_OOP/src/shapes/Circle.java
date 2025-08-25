@@ -8,8 +8,14 @@ package shapes;
  * contain any vertices
  */
 
-public class Circle  {
+public class Circle extends Shape2D {
 
+
+
+    private double radius;
+
+//    public double getRadius() {return this.radius;}
+//    private double setRadius(double radius) {this.radius = radius;}
 
 
     /**
@@ -18,10 +24,28 @@ public class Circle  {
      * @param radius The radius of the circle created
      */
     public Circle(Point centre, double radius) {
-
+        super(centre);
+        this.radius = radius;
     }
 
 
+    @Override
+    public boolean containsPoint(Point aApoint) {
+        return this.centre.distanceBetween((aApoint)) <= this.radius;
+    }
 
+    @Override
+    public Point[] getVertices() {
+        return new Point[0];
+    }
 
+    @Override
+    public double getArea() {
+        return Math.PI * Math.pow(this.radius, 2);
+    }
+
+    @Override
+    public double getPerimeter() {
+        return 2*Math.PI * this.radius;
+    }
 }
